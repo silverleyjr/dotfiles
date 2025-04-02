@@ -114,3 +114,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+
+cpc() {
+cp -rf ~/.config/nvim ~/projects/dotfiles/
+cp -rf ~/.zshrc ~/projects/dotfiles/
+}
