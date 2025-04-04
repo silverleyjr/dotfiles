@@ -1,3 +1,4 @@
+setxkbmap -option caps:escape
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
