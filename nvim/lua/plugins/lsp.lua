@@ -15,6 +15,7 @@ return {
 				automatic_installation = true,
 				ensure_installed = {
 					"lua_ls",
+					"jdtls",
 				},
 			})
 		end,
@@ -24,6 +25,7 @@ return {
 		lazy = false,
 		config = function()
 			local lspconfig = require("lspconfig")
+			lspconfig.jdtls.setup({})
 			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {
