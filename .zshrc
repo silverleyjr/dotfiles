@@ -1,4 +1,11 @@
-setxkbmap -option caps:escape
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+#setxkbmap -option caps:escape
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
@@ -80,7 +87,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,13 +122,14 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"      
 
 cpc() {
-cp -rf ~/.config/nvim ~/projects/dotfiles/
-cp -rf ~/.zshrc ~/projects/dotfiles/
+cp -rf ~/.config/nvim ~/dotfiles/ &&\
+cp -rf ~/.zshrc ~/dotfiles/
 }
 
-fortune | cowsay -f www
+#fortune | cowsay -f www
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
